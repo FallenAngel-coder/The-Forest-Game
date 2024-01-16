@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb37a5e4810a7744a6b9d1f88712c1d, type: 3}
+  m_Name: "\u0412iary"
+  m_EditorClassIdentifier: 
+  type: 0
+  itemName: "\u0412iary"
+  itemPerSlot: 1
+  icon: {fileID: 21300000, guid: d8ea0f3952f1deb42b1535c652aaf0fb, type: 3}
+  prefab: {fileID: 5644120277263337582, guid: 13bf990c5d5a77e478b88181112b0b33, type: 3}
+  itemInformation: 'Day 1:
+
+
+    Today was the first day of my new job as a forester.
+    I started early in the morning, when the sun had just risen. After waking up,
+    I immediately went to the forest. I started by inspecting the territory, checking
+    the trees for damage and making notes on the condition of the forest. I really
+    hope that I can help preserve this magical corner of nature.
+
+
+    Day 3:
+
+
+    Three
+    days of my work have passed. Today I spent more time among the trees, marking
+    those that need to be removed so that the forest can regain its balance. After
+    a long day''s work, I decided to rest near an old oak tree. Sitting under its
+    branches, I thought about how important it is to protect our environment for
+    future generations.
+
+
+    Day 6:
+
+
+    Today is the sixth day of my work. The
+    forest is blooming in the sunshine, and I''m happy to see nature come to life
+    in spring. I removed several dry trees that were dangerous for the surrounding
+    plants and animals. After work, I took a long walk in the forest, enjoying the
+    tranquility of this place.
+
+
+    Day 9:
+
+
+    Today is the ninth day of my work
+    as a forester. I spent a lot of time helping young trees grow, protecting them
+    from pests and drying out. This work requires patience and attention to detail,
+    but it is very important for the future of the forest. After work, I celebrated
+    the day with a cup of hot tea, reflecting on how nature can teach us important
+    things.
+
+
+    Day 12:
+
+
+    Today is the twelfth day of my work. The forest is
+    becoming my second home, and I can''t imagine my life without this place. I decided
+    to spend the day studying the diversity of plants and animals in the forest.
+    I made notes on the species that I found here, observing their behavior and interaction.
+    The forest is incredibly rich in diversity, and I feel happy to be a part of
+    this natural harmony.
+
+
+    Day 15:
+
+
+    Today is the fifteenth day of my work.
+    The forest is now covered with bright autumn colors, which makes it even more
+    magical. I continue my work marking trees for felling, choosing only those that
+    need to be removed to preserve the ecosystem. This work requires a lot of effort
+    from me, but I feel the meaning of my work when I see how nature repays us with
+    its beauty.
+
+
+    Day 18:
+
+
+    Today is the eighteenth day of my work. I take
+    a break from physical labor, focusing on researching the diversity of mushrooms
+    in the forest. The forest is full of interesting things, and every day I learn
+    something new. I spent several hours studying mushrooms and their properties,
+    recording my observations in detail. The forest provides me with an endless opportunity
+    to learn and share my knowledge.
+
+
+    Day 21:
+
+
+    Today is the twenty-first
+    day of my work as a forester. The forest continues to amaze me with its beauty
+    and mystery. I have watched the forest change with the seasons and I can feel
+    how the outside world affects every element of it. This day was full of thoughts
+    about the role of humans in nature and how important it is to preserve its gifts
+    for our descendants.
+
+
+    Day 24:
+
+
+    Today is the twenty-fourth day of my
+    work as a forester. The forest is now turning into a real miracle - every tree
+    is dressed in snowy clothes, and everything around glows with bright white light.
+    I continue my work, trying to help the forest survive the winter. I finish the
+    day watching the sunset, which paints the sky in different shades of red and
+    pink.
+
+
+    Day 27:
+
+
+    Today is the twenty-seventh day of my work. The forest
+    is gradually waking up from its hibernation. I started preparing the trees for
+    the new season by cutting branches and taking care of the young growths. I immersed
+    myself in the work, listening to the birds singing and the wind rustling among
+    the branches. It''s incredibly inspiring to work, making it not only hard work
+    but also a real pleasure.
+
+
+    Day 31:
+
+
+    Today is the thirty-first day of
+    my work as a forester. This month has been full of challenges and discoveries.
+    The forest has become my element, my main joy and inspiration. At the end of
+    this day, I feel proud of my work and a great responsibility towards nature.
+    Despite all the difficulties, I know that my work is important and dedicated
+    to the preservation of this magical forest. I look forward to the new challenges
+    and opportunities that the future will bring.'
