@@ -41,7 +41,6 @@ namespace InfimaGames.LowPolyShooterPack
         {
             // Re-cache the weapons
             weapons = GetComponentsInChildren<WeaponBehaviour>(true);
-            Debug.Log("Code reached drop logic");
             // Ensure the currently equipped weapon is within the valid range
             if (equippedIndex >= weapons.Length)
             {
