@@ -57,7 +57,6 @@ public class Projectile : MonoBehaviour
 
             // Знищення кулі
             Destroy(gameObject);
-            Debug.Log("Code reached the Enemy logic");
         }
 
         if (collision.transform.CompareTag("EnemyHead")) // Зміни "Head" на відповідний тег/шар для голови
@@ -76,7 +75,6 @@ public class Projectile : MonoBehaviour
 
             // Знищення кулі
             Destroy(gameObject);
-            Debug.Log("Code reached the Head logic");
         }
 
 

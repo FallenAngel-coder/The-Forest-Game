@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool PauseGame;
+    public static bool PauseGameOnEsc = false;
+    public static bool PauseGameOnInv = false;
     public GameObject pauseMenu;
 
     void Start()
@@ -18,28 +19,32 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PauseGame)
+            if (PauseGameOnEsc)
             {
                 Resume();
+                PauseGameOnEsc = false;
                 pauseMenu.SetActive(false);
             }
-            else
+            else if (!PauseGameOnInv) 
             {
                 Pause();
+                PauseGameOnEsc = true;
                 pauseMenu.SetActive(true);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (PauseGame)
+            if (PauseGameOnInv)
             {
                 Resume();
+                PauseGameOnInv = false;
                 pauseMenu.SetActive(false);
             }
-            else
+            else if(!PauseGameOnEsc)
             {
                 Pause();
+                PauseGameOnInv = true;
                 pauseMenu.SetActive(false);
             }
         }
@@ -48,7 +53,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-        PauseGame = false;
+    
+
         Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
         Cursor.visible = false;
     }
@@ -57,7 +63,8 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0f;
-        PauseGame = true;
+
+
         Cursor.lockState = CursorLockMode.None; // При паузі розблоковуємо курсор
         Cursor.visible = true;
     }

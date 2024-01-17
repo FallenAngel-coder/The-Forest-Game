@@ -269,12 +269,14 @@ namespace XEntity.InventoryItemSystem
             if (mainContainerUI.gameObject.activeSelf && isContainerUIOpen)
             {
                 isContainerUIOpen = false;
-                StartCoroutine(Utils.TweenScaleOut(mainContainerUI.gameObject, 50, false));
+                StartCoroutine(Utils.TweenScaleOut(mainContainerUI.gameObject, 10, false));
+                Time.timeScale = 1f;
             }
             else if(!mainContainerUI.gameObject.activeSelf && !isContainerUIOpen)
             {
                 isContainerUIOpen = true;
-                StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 50, Vector3.one));
+                StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 10, Vector3.one));
+                Time.timeScale = 0f;
             }
         }
 
