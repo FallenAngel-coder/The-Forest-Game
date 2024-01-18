@@ -87,7 +87,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Lock Cursor",
+                    "name": "LockCursor",
                     "type": "Button",
                     "id": "9beb2473-ee7d-4a54-857b-b42a64a66a65",
                     "expectedControlType": "Button",
@@ -488,7 +488,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Lock Cursor",
+                    "action": "LockCursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -499,7 +499,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Lock Cursor",
+                    "action": "LockCursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

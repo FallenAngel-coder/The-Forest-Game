@@ -240,11 +240,16 @@ namespace InfimaGames.LowPolyShooterPack
                 //Determine the rotation that we want to shoot our projectile in.
                 Quaternion rotation = Quaternion.LookRotation(playerCamera.forward * 1000.0f - muzzleSocket.position);
 
+
+                // Get the direction the player is looking
+                Vector3 shootingDirection = playerCamera.forward;
                 //If there's something blocking, then we can aim directly at that thing, which will result in more accurate shooting.
                 if (Physics.Raycast(new Ray(playerCamera.position, playerCamera.forward),
                     out RaycastHit hit, maximumDistance, mask))
                     rotation = Quaternion.LookRotation(hit.point - muzzleSocket.position);
-
+                else
+                    rotation = Quaternion.Euler(shootingDirection);
+                
                 //Spawn projectile from the projectile spawn point.
                 GameObject projectile = Instantiate(prefabProjectile, muzzleSocket.position, rotation);
                 //Add velocity to the projectile.

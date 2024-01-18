@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     public static bool PauseGameOnEsc = false;
     public static bool PauseGameOnInv = false;
     public GameObject pauseMenu;
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Початково блокуємо курсор
@@ -53,8 +52,6 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-    
-
         Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
         Cursor.visible = false;
     }
@@ -63,8 +60,6 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0f;
-
-
         Cursor.lockState = CursorLockMode.None; // При паузі розблоковуємо курсор
         Cursor.visible = true;
     }
