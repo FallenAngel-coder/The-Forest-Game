@@ -35,7 +35,6 @@ public class Zombie : MonoBehaviour
 
     public void TakeDamage(float damageValue)
     {
-        Debug.Log("Code reached the Zombie method");
         enemyHealth -= (int)damageValue; // Використай передане значення damage
         if (enemyHealth <= 0)
         {

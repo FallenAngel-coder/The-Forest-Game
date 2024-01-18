@@ -122,6 +122,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private readonly RaycastHit[] groundHits = new RaycastHit[8];
 
+        public bool isInLock = false;
         #endregion
 
         #region UNITY FUNCTIONS

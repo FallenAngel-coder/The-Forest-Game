@@ -4,10 +4,10 @@ using InfimaGames.LowPolyShooterPack;
 public class ObjectController : MonoBehaviour
 {
     public GameObject prefabToSpawn; // Передайте префаб для спавну
-
+    public Inventory inventory;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && inventory.weapons.Length > 1)
         {
             SpawnPrefab(); // Спавн нового об'єкта при натисканні Q
             Destroy(gameObject); // Видалення поточного об'єкта, на якому цей скрипт
