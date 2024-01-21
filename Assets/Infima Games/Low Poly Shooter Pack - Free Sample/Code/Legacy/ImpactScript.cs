@@ -10,6 +10,7 @@ public class ImpactScript : MonoBehaviour {
     [Header("Audio")]
     public AudioClip[] impactSounds;
     public AudioSource audioSource;
+    public GameObject gameObject;
 
     private bool hasCollided = false;
 

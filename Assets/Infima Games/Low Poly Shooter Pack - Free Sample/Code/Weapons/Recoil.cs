@@ -22,7 +22,7 @@ public class Recoil : MonoBehaviour
 
     private void Start()
     {
-       
+
     }
 
     private void OnEnable()
