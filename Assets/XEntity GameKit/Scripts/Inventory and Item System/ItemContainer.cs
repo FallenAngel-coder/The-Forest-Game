@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using IndicatorsHealth;
 namespace XEntity.InventoryItemSystem
 {
     //This script is attached to the UI representation of the item container. An example item container UI prefab is provided with the asset.
+    
     public class ItemContainer : MonoBehaviour
     {
         [Header("Do NOT assign interactor on external containers.")]
@@ -19,7 +20,7 @@ namespace XEntity.InventoryItemSystem
         //If this is true, when items are removed from this container, they will be dropped in front of the container.
         [Tooltip("If true when items are removed the corresponding prefab will be instantiated in the scene near the carrier")]
         public bool dropItemGameObjects = true;
-
+        public Indicators indicators;
 
         //The array of slots this container holds. The slots are assigned through code based on the number of children the slot holder Transform contains.
         protected ItemSlot[] slots;
@@ -36,7 +37,7 @@ namespace XEntity.InventoryItemSystem
         protected Transform containerPanel;
 
         private List<SlotOptionButtonInfo> slotOptionButtonInfoList;
-
+ 
         protected virtual void OnEnable() 
         {
             ItemSlotUIEvents.OnSlotDrag += CloseSlotOptionsMenu;
@@ -210,7 +211,7 @@ namespace XEntity.InventoryItemSystem
 
         private void OnUseItemClicked(ItemSlot slot, Interactor interactor)
         {
-            ItemManager.Instance.UseItem(slot);
+            ItemManager.Instance.UseItem(slot, indicators);
         }
 
         private void OnItemInfoClicked(ItemSlot slot, Interactor interactor)

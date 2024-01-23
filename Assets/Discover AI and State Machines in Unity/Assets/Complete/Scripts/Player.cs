@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     {
         health = GetComponent<Health>();
         animator = transform.GetChild(0).GetComponent<Animator>();
-        health.SetHealth(20);
+        health.SetHealth(100);
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Hurt(int amount, int delay = 0)
+    public void Hurt(float amount, int delay = 0)
     {
         StartCoroutine(health.TakeDamageDelayed(amount, delay));
     }
