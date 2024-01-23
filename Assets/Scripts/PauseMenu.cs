@@ -39,12 +39,13 @@ public class PauseMenu : MonoBehaviour
                 Resume();
                 PauseGameOnInv = false;
                 pauseMenu.SetActive(false);
+                Cursor.visible = false;
             }
             else if(!PauseGameOnEsc)
             {
                 Pause();
                 PauseGameOnInv = true;
-                pauseMenu.SetActive(false);
+                pauseMenu.SetActive(true);
             }
         }
     }

@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using IndicatorsHealth;
 namespace XEntity.InventoryItemSystem
 {
     //This script contains the all the different item references and different types of item use events.
     //This script must exist in the scene for the saving/loading/item-use system to work properly.
     //NOTE: Only one reference should exist in the scene at once.
-
+    
     public class ItemManager : MonoBehaviour
     {
         public InteractionSettings interactionSettings;
@@ -38,7 +38,7 @@ namespace XEntity.InventoryItemSystem
         }
 
         //This function is called when the Use Item button is clicked from one of the inventory items.
-        public void UseItem(ItemSlot slot) 
+        public void UseItem(ItemSlot slot, Indicators indicator) 
         {
             if (slot.IsEmpty) return;
 
@@ -48,7 +48,7 @@ namespace XEntity.InventoryItemSystem
                 default: DefaultItemUse(slot); break;
                 case ItemType.ToolOrWeapon: EquipItem(slot); break;
                 case ItemType.Placeable: PlaceItem(slot); break;
-                case ItemType.Consumeable: ConsumeItem(slot); break;
+                case ItemType.Consumeable: ConsumeItem(slot, indicator); break;
 
             }
         }
@@ -57,8 +57,10 @@ namespace XEntity.InventoryItemSystem
         //The custom item use method should take ItemSlot as an argument if you are modifying the item in the slot.
         //Note: This item slot is the slot the item is being held at when the use method is called.
 
-        private void ConsumeItem(ItemSlot slot) 
+        private void ConsumeItem(ItemSlot slot, Indicators indicator) 
         {
+            if (slot.slotItem.itemName == "Apple")
+                indicator.foodAmount += 25;
             Debug.Log("You have consumed " + slot.slotItem.itemName);
             slot.Remove(1);
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using IndicatorsHealth;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,9 +7,8 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     private int maxHealth;
-    private int currentHealth;
     [SerializeField]
-    private Slider healthbar;
+    private Indicators Indicators;
     [SerializeField]
     private string deathSceneName;
     [SerializeField]
@@ -23,22 +23,22 @@ public class Health : MonoBehaviour
 
     public void SetHealth(int amount)
     {
-        currentHealth = maxHealth = amount;
+        Indicators.healthAmount = maxHealth = amount;
         OnHealthChange();
     }
 
     void Heal(int amount)
     {
-        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        Indicators.healthAmount = Mathf.Min(Indicators.healthAmount + amount, maxHealth);
         OnHealthChange();
     }
 
     void OnHealthChange()
     {
-        healthbar.value = (float)currentHealth / (float)maxHealth;
+        Indicators.UpdateHealth();
     }
 
-    public IEnumerator TakeDamageDelayed(int amount, float delay)
+    public IEnumerator TakeDamageDelayed(float amount, float delay)
     {
         // Показати зображення шкоди
         damageImage.gameObject.SetActive(true);
@@ -54,8 +54,8 @@ public class Health : MonoBehaviour
             yield return null;
         }
 
-        currentHealth = Mathf.Max(currentHealth - amount, 0);
-        if (currentHealth == 0)
+        Indicators.healthAmount = Mathf.Max(Indicators.healthAmount - amount, 0);
+        if (Indicators.healthAmount == 0)
         {
             OnDeath();
         }

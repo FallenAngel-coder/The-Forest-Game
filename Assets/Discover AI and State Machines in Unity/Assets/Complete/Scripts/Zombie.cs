@@ -30,7 +30,7 @@ public class Zombie : MonoBehaviour
 
     public float radiusAttack = 2f; // Радіус кола
 
-    public float damage; // Оголошення змінної damage
+    public float damage = 25f; // Оголошення змінної damage
 
 
     public void TakeDamage(float damageValue)
@@ -251,7 +251,7 @@ public class Zombie : MonoBehaviour
         else if (attackTimer <= 0)
         {
             animator.SetTrigger("Attack");
-            player.Hurt(2, 1);
+            player.Hurt(damage, 1);
             attackTimer = 2f;
         }
     }
