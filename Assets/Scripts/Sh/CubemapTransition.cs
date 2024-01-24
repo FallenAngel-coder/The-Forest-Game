@@ -15,44 +15,44 @@ public class CubemapTransition : MonoBehaviour
 
     void Update()
     {
-        // ќбертанн€ об'Їкта по колу вздовж ос≥ X
-        float rotationAmount = rotationSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.right, rotationAmount);
+        //// ќбертанн€ об'Їкта по колу вздовж ос≥ X
+        //float rotationAmount = rotationSpeed * Time.deltaTime;
+        //transform.Rotate(Vector3.right, rotationAmount);
 
-        // ќтримуЇмо напр€мок св≥тла по X
-        float lightRotationX = lightTransform.rotation.eulerAngles.x;
+        //// ќтримуЇмо напр€мок св≥тла по X
+        //float lightRotationX = lightTransform.rotation.eulerAngles.x;
 
-        // ѕерев≥р€Їмо, чи св≥тло знаходитьс€ в потр≥бному д≥апазон≥
-        if (lightRotationX >= -5f && lightRotationX <= 175f)
-        {
-            targetValue = 1f; // якщо св≥тло в д≥апазон≥, встановлюЇмо ц≥льове значенн€ 1
-        }
-        else
-        {
-            targetValue = 0f; // якщо св≥тло не в д≥апазон≥, встановлюЇмо ц≥льове значенн€ 0
-        }
+        //// ѕерев≥р€Їмо, чи св≥тло знаходитьс€ в потр≥бному д≥апазон≥
+        //if (lightRotationX >= -5f && lightRotationX <= 175f)
+        //{
+        //    targetValue = 1f; // якщо св≥тло в д≥апазон≥, встановлюЇмо ц≥льове значенн€ 1
+        //}
+        //else
+        //{
+        //    targetValue = 0f; // якщо св≥тло не в д≥апазон≥, встановлюЇмо ц≥льове значенн€ 0
+        //}
 
-        // ѕлавний перех≥д
-        if (targetValue != material.GetFloat("_CubemapTransition"))
-        {
-            if (!isTransitioning)
-            {
-                isTransitioning = true;
-                startValue = material.GetFloat("_CubemapTransition");
-                transitionTimer = 0f;
-            }
+        //// ѕлавний перех≥д
+        //if (targetValue != material.GetFloat("_CubemapTransition"))
+        //{
+        //    if (!isTransitioning)
+        //    {
+        //        isTransitioning = true;
+        //        startValue = material.GetFloat("_CubemapTransition");
+        //        transitionTimer = 0f;
+        //    }
 
-            transitionTimer += Time.deltaTime;
+        //    transitionTimer += Time.deltaTime;
 
-            float t = Mathf.Clamp01(transitionTimer / transitionDuration);
-            t = Mathf.SmoothStep(startValue, targetValue, t);
+        //    float t = Mathf.Clamp01(transitionTimer / transitionDuration);
+        //    t = Mathf.SmoothStep(startValue, targetValue, t);
 
-            material.SetFloat("_CubemapTransition", t);
+        //    material.SetFloat("_CubemapTransition", t);
 
-            if (transitionTimer >= transitionDuration)
-            {
-                isTransitioning = false;
-            }
-        }
+        //    if (transitionTimer >= transitionDuration)
+        //    {
+        //        isTransitioning = false;
+        //    }
+        //}
     }
-}
+}   

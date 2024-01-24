@@ -1,7 +1,7 @@
 ﻿// Copyright 2021, Infima Games. All Rights Reserved.
 
 using UnityEngine;
-
+using InfimaGames.LowPolyShooterPack;
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
     /// <summary>
@@ -16,7 +16,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Canvas prefab spawned at start. Displays the player's user interface.")]
         [SerializeField]
         private GameObject canvasPrefab;
-
+        public Character character;
         #endregion
 
         #region UNITY FUNCTIONS
@@ -28,6 +28,9 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         {
             //Spawn Interface.
             Instantiate(canvasPrefab);
+            PauseMenu pauseMenu = canvasPrefab.GetComponentInChildren<PauseMenu>();
+            pauseMenu.character = character;
+    
         }
 
         #endregion
