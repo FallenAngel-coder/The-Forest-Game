@@ -5,6 +5,7 @@ public class PressEsc : MonoBehaviour
 {
     public Button button; // Кнопка, яка буде викликати натискання Esc
     public PauseMenu pauseMenu;
+
     public void Start()
     {
         button.onClick.AddListener(PressTheEsc);
@@ -14,5 +15,6 @@ public class PressEsc : MonoBehaviour
     {
         Debug.Log("Press Esc");
         pauseMenu.Resume();
+        PauseMenu.PauseGameOnEsc = false;
     }
 }

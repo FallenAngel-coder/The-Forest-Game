@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        // Ініціалізація
+        Indicators.UpdateHealthE += UpdateHealthUI;
     }
 
     public void SetHealth(int amount = 100)
@@ -27,7 +27,12 @@ public class Health : MonoBehaviour
         maxHealth = amount;
         OnHealthChange();
     }
-
+    void UpdateHealthUI()
+    {
+        if (Indicators.healthAmount <= 0)
+            OnDeath();
+        TakeDamageDelayed(0, 0);
+    }
     void Heal(int amount)
     {
         Indicators.healthAmount = Mathf.Min(Indicators.healthAmount + amount, maxHealth);
@@ -37,6 +42,7 @@ public class Health : MonoBehaviour
     void OnHealthChange()
     {
         Indicators.UpdateHealth();
+
     }
 
     public IEnumerator TakeDamageDelayed(float amount, float delay)
@@ -56,7 +62,7 @@ public class Health : MonoBehaviour
         }
 
         Indicators.healthAmount = Mathf.Max(Indicators.healthAmount - amount, 0);
-        if (Indicators.healthAmount == 0)
+        if (Indicators.healthAmount <= 0)
         {
             OnDeath();
         }
