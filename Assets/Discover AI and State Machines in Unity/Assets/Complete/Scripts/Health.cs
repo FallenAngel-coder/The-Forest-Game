@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    private int maxHealth;
+    private int maxHealth = 100;
     [SerializeField]
     private Indicators Indicators;
     [SerializeField]
@@ -21,9 +21,10 @@ public class Health : MonoBehaviour
         // Ініціалізація
     }
 
-    public void SetHealth(int amount)
+    public void SetHealth(int amount = 100)
     {
-        Indicators.healthAmount = maxHealth = amount;
+        Indicators.healthAmount = amount;
+        maxHealth = amount;
         OnHealthChange();
     }
 

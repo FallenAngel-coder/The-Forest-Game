@@ -7,7 +7,7 @@ namespace IndicatorsHealth
 {
     public class Indicators : MonoBehaviour
     {
-        public Image healthBar, foodBar;
+        public Image healthBar, foodBar, smileBar;
         public float healthAmount = 100;
         public float foodAmount = 100;
 

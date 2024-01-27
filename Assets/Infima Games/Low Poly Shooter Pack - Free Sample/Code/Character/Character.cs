@@ -147,7 +147,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// True if the game cursor is locked! Used when pressing "Escape" to allow developers to more easily access the editor.
         /// </summary>
-        private bool cursorLocked;
+        public bool cursorLocked;
 
         #endregion
 
@@ -763,6 +763,7 @@ namespace InfimaGames.LowPolyShooterPack
                 case { phase: InputActionPhase.Performed }:
                     //Toggle the cursor locked value.
                     cursorLocked = !cursorLocked;
+                    Debug.Log("OnLockC case");
                     //Update the cursor's state.
                     //UpdateCursorState();
                     break;

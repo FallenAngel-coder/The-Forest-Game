@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool PauseGameOnEsc = false;
     public static bool PauseGameOnInv = false;
     public GameObject pauseMenu;
+    public InfimaGames.LowPolyShooterPack.Character character;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Початково блокуємо курсор
@@ -24,7 +25,7 @@ public class PauseMenu : MonoBehaviour
                 PauseGameOnEsc = false;
                 pauseMenu.SetActive(false);
             }
-            else if (!PauseGameOnInv) 
+            else if (!PauseGameOnInv && !PauseGameOnEsc) 
             {
                 Pause();
                 PauseGameOnEsc = true;
@@ -41,7 +42,7 @@ public class PauseMenu : MonoBehaviour
                 pauseMenu.SetActive(false);
                 Cursor.visible = false;
             }
-            else if(!PauseGameOnEsc)
+            else if(!PauseGameOnInv && !PauseGameOnEsc)
             {
                 Pause();
                 PauseGameOnInv = true;
@@ -55,6 +56,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
         Cursor.visible = false;
+        pauseMenu.SetActive(false);
+        character.cursorLocked = true;
     }
 
 
