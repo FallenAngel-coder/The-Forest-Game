@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using InfimaGames.LowPolyShooterPack;
-using UnityEngine.TextCore.Text;
+
 public class PauseMenu : MonoBehaviour
 {
     public static bool PauseGameOnEsc = false;
     public static bool PauseGameOnInv = false;
     public GameObject pauseMenu;
-    public InfimaGames.LowPolyShooterPack.Character character;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Початково блокуємо курсор
@@ -26,8 +24,8 @@ public class PauseMenu : MonoBehaviour
                 PauseGameOnEsc = false;
                 pauseMenu.SetActive(false);
             }
-            else if (!PauseGameOnInv && !PauseGameOnEsc) 
-            { 
+            else if (!PauseGameOnInv) 
+            {
                 Pause();
                 PauseGameOnEsc = true;
                 pauseMenu.SetActive(true);
@@ -40,12 +38,14 @@ public class PauseMenu : MonoBehaviour
             {
                 Resume();
                 PauseGameOnInv = false;
+                pauseMenu.SetActive(false);
                 Cursor.visible = false;
             }
-            else if(!PauseGameOnInv && !PauseGameOnEsc)
+            else if(!PauseGameOnEsc)
             {
                 Pause();
                 PauseGameOnInv = true;
+                pauseMenu.SetActive(true);
             }
         }
     }
@@ -55,8 +55,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
         Cursor.visible = false;
-        pauseMenu.SetActive(false);
-        character.cursorLocked = false;
     }
 
 
@@ -65,7 +63,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None; // При паузі розблоковуємо курсор
         Cursor.visible = true;
-        character.cursorLocked = true;
     }
 
     public void LoadMenu()

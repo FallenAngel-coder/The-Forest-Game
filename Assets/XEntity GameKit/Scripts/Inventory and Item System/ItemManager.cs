@@ -60,11 +60,7 @@ namespace XEntity.InventoryItemSystem
         private void ConsumeItem(ItemSlot slot, Indicators indicator) 
         {
             if (slot.slotItem.itemName == "Apple")
-            {
                 indicator.foodAmount += 25;
-                indicator.UpdateHunger();
-            }
-                
             Debug.Log("You have consumed " + slot.slotItem.itemName);
             slot.Remove(1);
         }

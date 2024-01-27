@@ -17,8 +17,6 @@ namespace IndicatorsHealth
         {
             healthBar.fillAmount = healthAmount / 100;
             foodBar.fillAmount = foodAmount / 100;
-            healthAmount = 10;
-            UpdateHealth();
         }
 
         // Update is called once per frame
@@ -38,10 +36,6 @@ namespace IndicatorsHealth
         public void UpdateHealth()
         {
             healthBar.fillAmount = healthAmount / 100;
-        }
-        public void UpdateHunger()
-        {
-            foodBar.fillAmount = foodAmount / 100;
         }
     }
 }

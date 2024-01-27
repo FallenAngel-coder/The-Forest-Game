@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class PressEsc : MonoBehaviour
 {
     public Button button; // Кнопка, яка буде викликати натискання Esc
-    public PauseMenu pauseMenu;
 
     public void Start()
     {
@@ -13,7 +12,9 @@ public class PressEsc : MonoBehaviour
 
     void PressTheEsc()
     {
-        Debug.Log("Press Esc");
-        pauseMenu.Resume();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Esc була натиснута");
+        }
     }
 }
