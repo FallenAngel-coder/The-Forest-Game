@@ -217,7 +217,7 @@ namespace InfimaGames.LowPolyShooterPack
         #region METHODS
         private bool isLocked = false;
         private bool isCrouching = false;
-
+        public Stamina stamina;
         private void MoveCharacter()
         {
             if (grounded)
@@ -232,13 +232,13 @@ namespace InfimaGames.LowPolyShooterPack
                     var movement = new Vector3(frameInput.x, 0.0f, frameInput.y);
 
                     // Running and crouching speed calculation.
-                    if (playerCharacter.IsRunning() && !isCrouching)
+                    if (playerCharacter.IsRunning() && !isCrouching && stamina.currentStamina > 0)
                         movement *= speedRunning;
                     else if (isCrouching)
                     {
                         // If crouching, use crouch speed.
                         movement *= crouchSpeed;
-                        if (playerCharacter.IsRunning())
+                        if (playerCharacter.IsRunning() && stamina.currentStamina > 0)
                         {
                             // If crouching and running, use crouchRunningSpeed.
                             movement *= crouchRunningSpeed;

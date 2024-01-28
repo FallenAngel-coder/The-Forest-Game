@@ -149,6 +149,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public bool cursorLocked;
 
+
         #endregion
 
         #region CONSTANTS
