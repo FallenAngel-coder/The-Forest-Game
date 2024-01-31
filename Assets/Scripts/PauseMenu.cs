@@ -33,22 +33,22 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        //if (Input.GetKeyDown(KeyCode.Tab))
-        //{
-        //    if (PauseGameOnInv)
-        //    {
-        //        Resume();
-        //        PauseGameOnInv = false;
-        //        pauseMenu.SetActive(false);
-        //        Cursor.visible = false;
-        //    }
-        //    else if(!PauseGameOnInv && !PauseGameOnEsc)
-        //    {
-        //        Pause();
-        //        PauseGameOnInv = true;
-        //        pauseMenu.SetActive(true);
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (PauseGameOnInv)
+            {
+                Resume();
+                PauseGameOnInv = false;
+                pauseMenu.SetActive(false);
+                Cursor.visible = false;
+            }
+            else if(!PauseGameOnInv && !PauseGameOnEsc)
+            {
+                Pause();
+                PauseGameOnInv = true;
+                pauseMenu.SetActive(true);
+            }
+        }
     }
 
     public void Resume()

@@ -483,28 +483,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9837bdb8-e264-4c32-93bf-8013338f5c63",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LockCursor",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "14d362fc-ff95-43a3-989e-39fb2b226480",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LockCursor",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e2c127bc-a838-4782-a49c-063fa51f1d76",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
@@ -522,6 +500,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Tutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4af9742-7d1a-4636-8df9-235354eadaff",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d60cf051-d8a8-4c78-a8a4-efad9fec621b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockCursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

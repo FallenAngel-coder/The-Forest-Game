@@ -32,6 +32,13 @@ public class Zombie : MonoBehaviour
 
     public float damage = 25f; // Оголошення змінної damage
 
+    public float laughInterval = 10f; // Інтервал сміху
+    private float laughTimer; // Таймер для сміху
+    private bool isLaughing; // Флаг, що вказує, чи зомбі сміється
+    public AudioClip laughSound; // Попередньо імпортуйте UnityEngine в заголовок класу
+    public AudioSource audioSource;
+    public AudioClip hitSound; // Попередньо імпортуйте UnityEngine в заголовок класу
+    public AudioSource hitAudioSource;
 
     public void TakeDamage(float damageValue)
     {
@@ -44,6 +51,7 @@ public class Zombie : MonoBehaviour
         {
             brain.PushState(Chase, OnChaseEnter, OnChaseExit);
         }
+            hitAudioSource.Play();
     }
 
     void Start()
@@ -56,6 +64,17 @@ public class Zombie : MonoBehaviour
         playerIsBehind = false;
         withinAttackRange = false;
         brain.PushState(Idle, OnIdleEnter, OnIdleExit);
+
+
+        laughTimer = Random.Range(0, laughInterval);
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.clip = laughSound;
+
+        hitAudioSource = gameObject.AddComponent<AudioSource>();
+        hitAudioSource.playOnAwake = false;
+        hitAudioSource.clip = hitSound;
     }
 
     void Update()
@@ -77,8 +96,52 @@ public class Zombie : MonoBehaviour
             brain.PopState(); // Зупинка поточного стану
             brain.PushState(Chase, OnChaseEnter, OnChaseExit); // Перехід до стану переслідування
         }
+
+        laughTimer -= Time.deltaTime;
+        if (laughTimer <= 0)
+        {
+            if (playerIsNear)
+            {
+                if (Random.Range(0f, 1f) < 0.75f) // 75% ймовірність сміху, якщо гравець близько
+                {
+                    StartLaugh();
+                }
+            }
+            else
+            {
+                if (Random.Range(0f, 1f) < 0.25f) // 25% ймовірність рандомного сміху
+                {
+                    StartLaugh();
+                }
+            }
+
+            laughTimer = laughInterval; // Скидання таймера
+        }
+
+
+
+
+        if (isLaughing)
+        {
+            // Додайте код для перевірки завершення анімації сміху тут
+            // Наприклад, якщо (animationIsComplete), то заверши сміх:
+            EndLaugh();
+        }
     }
 
+
+    void StartLaugh()
+    {
+        // Відтворення аудіо
+        audioSource.Play();
+    }
+
+    void EndLaugh()
+    {
+        isLaughing = false;
+        // Додайте код для завершення анімації сміху тут
+        // Наприклад, animator.SetTrigger("EndLaugh");
+    }
 
     #region Gizmos
 

@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
+    private int maxHealth = 100;
     [SerializeField]
-    public Indicators Indicators;
+    private Indicators Indicators;
     [SerializeField]
-    public string deathSceneName;
+    private string deathSceneName;
     [SerializeField]
-    public Image damageImage; // Посилання на зображення для відображення шкоди
+    private Image damageImage; // Посилання на зображення для відображення шкоди
     [SerializeField]
-    public AnimationCurve fadeCurve; // AnimationCurve для згладження зникнення зображення шкоди
+    private AnimationCurve fadeCurve; // AnimationCurve для згладження зникнення зображення шкоди
 
     void Start()
     {
