@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/New Terrain 1.asset.meta
 guid: 95b8be46259fc39448ba8008d490eb4f
+=======
+guid: c269f582c66074140b59cd42d48f8b24
+>>>>>>> parent of 127f153 (Локація):Assets/Terrain/lok test.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 15600000
