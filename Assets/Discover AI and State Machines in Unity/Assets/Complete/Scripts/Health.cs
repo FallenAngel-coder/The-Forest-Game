@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
     {
         if (Indicators.healthAmount <= 0)
             OnDeath();
-        TakeDamageDelayed(0, 0);
+        TakeDamageDelayed(0, 3);
     }
     void Heal(int amount)
     {

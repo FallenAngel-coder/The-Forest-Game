@@ -54,7 +54,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
         Cursor.visible = false;
-        pauseMenu.SetActive(false);
         character.cursorLocked = true;
     }
 
