@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using InfimaGames.LowPolyShooterPack;
 public class PauseMenu : MonoBehaviour
 {
     public static bool PauseGameOnEsc = false;
@@ -33,20 +33,18 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             if (PauseGameOnInv)
             {
                 Resume();
                 PauseGameOnInv = false;
-                pauseMenu.SetActive(false);
                 Cursor.visible = false;
             }
             else if(!PauseGameOnInv && !PauseGameOnEsc)
             {
                 Pause();
                 PauseGameOnInv = true;
-                pauseMenu.SetActive(true);
             }
         }
     }
@@ -66,6 +64,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None; // При паузі розблоковуємо курсор
         Cursor.visible = true;
+        character.cursorLocked = false;
     }
 
     public void LoadMenu()

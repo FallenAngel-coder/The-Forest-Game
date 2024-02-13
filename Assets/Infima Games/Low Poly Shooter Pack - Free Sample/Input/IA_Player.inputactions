@@ -524,6 +524,17 @@
                     "action": "LockCursor",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "567fafb6-fb0c-4927-9ad2-5ebbc7132049",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
