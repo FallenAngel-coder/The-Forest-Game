@@ -10,16 +10,16 @@ namespace IndicatorsHealth
         public Image healthBar, foodBar, smileBar;
         public float healthAmount = 100;
         public float foodAmount = 100;
-        public float smileAmount = 10;
+        public float smileAmount = 100;
         public float secondsToEmptyFood = 60f;
         public float secondsToEmptyHealth = 60f;
         public static event Action UpdateHealthE;
         public float secondsToFullSmile = 60f;
         void Start()
         {
-            healthBar.fillAmount = healthAmount / 100;
-            foodBar.fillAmount = foodAmount / 100;
-            smileBar.fillAmount= smileAmount / 100;
+            healthBar.fillAmount = 75;
+            foodBar.fillAmount = 50;
+            smileBar.fillAmount= 30;
         }
 
         // Update is called once per frame

@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void MoveToSceneZero()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("New Scene");
     }
 
     public void MoveToSceneOne()

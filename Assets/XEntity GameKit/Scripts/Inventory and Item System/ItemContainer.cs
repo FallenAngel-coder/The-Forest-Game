@@ -260,7 +260,7 @@ namespace XEntity.InventoryItemSystem
             }
             return false;
         }
-
+        
         //Updates the UI toggle state.
         protected void ToggleUI()
         {
