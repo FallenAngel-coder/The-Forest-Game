@@ -8,6 +8,7 @@ public class ProjectorController : MonoBehaviour
     {
         // Отримуємо посилання на компонент "Світло" об'єкта
         прожектор = GetComponent<Light>();
+        прожектор.enabled = false;
     }
 
     void Update()

@@ -41,8 +41,6 @@ namespace XEntity.InventoryItemSystem
         public void UseItem(ItemSlot slot, Indicators indicator) 
         {
             if (slot.IsEmpty) return;
-
-            //Add custom item functions ###################################################################################################
             switch (slot.slotItem.type) 
             {
                 default: DefaultItemUse(slot); break;

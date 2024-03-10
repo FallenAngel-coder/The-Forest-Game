@@ -104,29 +104,18 @@ namespace XEntity.InventoryItemSystem
 
         protected virtual void CreateSlotOptionsMenu(SlotOptions[] config, Interactor interactor)
         {
-            //If valid custom configuration eixsts, use that instead of the default one.
             if (customOptionsMenuConfig != null && customOptionsMenuConfig.Length > 0)
-            {
                 config = customOptionsMenuConfig;
-            }
-
             itemInfoPanel = slotOptionsMenu.transform.Find("Info Panel").gameObject;
-
             GameObject buttonPrefab = InteractionSettings.Current.optionsMenuButtonPrefab;
             slotOptionButtonInfoList = new List<SlotOptionButtonInfo>();
-
             foreach (Transform child in slotOptionsMenu.transform)
-            {
                 if (child.GetComponent<Button>()) Destroy(child.gameObject);
-            }
-
             foreach (SlotOptions option in config)
             {
                 Button button = Instantiate(buttonPrefab, slotOptionsMenu.transform).GetComponent<Button>();
                 string buttonTitle = option.ToString();
                 System.Action<ItemSlot, Interactor> onButtonClicked = null;
-
-                //Add custom slot options here ###################################################################################################
                 switch (option)
                 {
                     case SlotOptions.Use:
@@ -150,7 +139,6 @@ namespace XEntity.InventoryItemSystem
                         onButtonClicked = OnTransferToInventoryClicked;
                         break;
                 }
-
                 button.GetComponentInChildren<Text>().text = buttonTitle;
                 SlotOptionButtonInfo buttonInfo = new SlotOptionButtonInfo(button, onButtonClicked, OnSlotButtonEventFinished);
                 slotOptionButtonInfoList.Add(buttonInfo);
@@ -168,58 +156,45 @@ namespace XEntity.InventoryItemSystem
         protected void OnSlotClicked(ItemSlot slot, Interactor interactor)
         {
             if (slot.IsEmpty) return;
-
             if (!slotOptionsMenu.activeSelf)
             {
                 foreach (SlotOptionButtonInfo buttonInfo in slotOptionButtonInfoList)
-                {
                     buttonInfo.UpdateInfo(slot, interactor);
-                }
-
                 OpenSlotOptionsMenu();
             }
             else 
-            {
                 CloseSlotOptionsMenu();
-            }
         }
-
         private void OpenSlotOptionsMenu()
         {
             slotOptionsMenu.SetActive(false);
             slotOptionsMenu.transform.position = Input.mousePosition;
             StartCoroutine(Utils.TweenScaleIn(slotOptionsMenu, 50, Vector3.one));
         }
-
         private void CloseSlotOptionsMenu()
         {
             slotOptionsMenu.SetActive(false);
             itemInfoPanel.SetActive(false);
         }
-
         private void OnRemoveItemClicked(ItemSlot slot, Interactor interactor)
         {
             if (dropItemGameObjects) slot.RemoveAndDrop(1, containerInteractor.ItemDropPosition);
             else slot.Remove(1);
         }
-
         private void OnBulkRemoveItemClicked(ItemSlot slot, Interactor interactor)
         {
             if (dropItemGameObjects) slot.RemoveAndDrop(slot.itemCount, interactor.ItemDropPosition);
             else slot.Remove(slot.itemCount);
         }
-
         private void OnUseItemClicked(ItemSlot slot, Interactor interactor)
         {
             ItemManager.Instance.UseItem(slot, indicators);
         }
-
         private void OnItemInfoClicked(ItemSlot slot, Interactor interactor)
         {
             itemInfoPanel.GetComponentInChildren<Text>().text = slot.slotItem.itemInformation;
             itemInfoPanel.SetActive(!itemInfoPanel.activeSelf);
         }
-
         private void OnSlotButtonEventFinished(ItemSlot slot)
         {
             if (slot.IsEmpty)
@@ -231,6 +206,7 @@ namespace XEntity.InventoryItemSystem
         //Checks for user inputs and updates the toggle state of the UI accordingly.
         protected void CheckForUIToggleInput()
         {
+            SaveData("save_key");
             if (Input.GetKeyDown(UIToggleKey)) ToggleUI();
         }
 
@@ -289,15 +265,12 @@ namespace XEntity.InventoryItemSystem
         //If a save already exists with the id, the data will be overwritten.
         public void SaveData(string id) 
         {
-            //An unique file path is aquired here based on the passed in id. 
             string dataPath = GetIDPath(id);
-
             if (System.IO.File.Exists(dataPath))
             {
                 System.IO.File.Delete(dataPath);
                 Debug.Log("Exisiting data with id: " + id +"  is overwritten.");
             }
-
             try 
             {
                 Transform slotHolder = mainContainerUI.Find("Slot Holder");
@@ -306,39 +279,29 @@ namespace XEntity.InventoryItemSystem
                 {
                     ItemSlot slot = slotHolder.GetChild(i).GetComponent<ItemSlot>();
                     if (!slot.IsEmpty)
-                    {
                         info.AddInfo(i, ItemManager.Instance.GetItemIndex(slot.slotItem), slot.itemCount);
-                    }
                 }
-                //Convert slot info object to json string and write it to a local file
                 string jsonData = JsonUtility.ToJson(info);
                 System.IO.File.WriteAllText(dataPath, jsonData);
                 Debug.Log("<color=green>Data succesfully saved! </color>");
             } 
             catch 
             {
-                Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list");
+                Debug.LogError("Could not save container data");
             }
         }
-
-        //Loads container data that was saved with the passed in id.
-        //NOTE: A save file must exist first with the id in order for it to be loaded.
         public void LoadData(string id) 
         {
             string dataPath = GetIDPath(id);
-
             if (!System.IO.File.Exists(dataPath)) 
             {
                 Debug.LogWarning("No saved data exists for the provided id: " + id);
                 return;
             }
-
             try 
             {
-                //Read and parse json string to slot info object and load all data accordingly.
                 string jsonData = System.IO.File.ReadAllText(dataPath);
                 SlotInfo info = JsonUtility.FromJson<SlotInfo>(jsonData);
-
                 Transform slotHolder = mainContainerUI.Find("Slot Holder");
                 for (int i = 0; i < info.slotIndexs.Count; i++)
                 {
@@ -349,7 +312,7 @@ namespace XEntity.InventoryItemSystem
             }
             catch
             {
-                Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list.");
+                Debug.LogError("Could not load container data!");
             }
         }
 
