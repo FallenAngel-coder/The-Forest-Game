@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (PauseGameOnInv)
             {
@@ -55,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
         Cursor.visible = false;
         character.cursorLocked = true;
+        pauseMenu.SetActive(false);
     }
 
 

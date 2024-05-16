@@ -62,6 +62,6 @@ public class Health : MonoBehaviour
 
     private void OnDeath()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }
