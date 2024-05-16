@@ -35,7 +35,7 @@ public class AimMaterialController : MonoBehaviour
     void OnAim()
     {
         // Вимкнути aimCamera при прицілюванні
-        aimCamera.enabled = false;
+
 
         // Змінити матеріал при прицілюванні
         targetRenderer.material = aimMaterial;

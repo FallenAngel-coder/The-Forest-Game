@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     {
         health = GetComponent<Health>();
         animator = transform.GetChild(0).GetComponent<Animator>();
-        health.SetHealth(100);
     }
 
     // Update is called once per frame

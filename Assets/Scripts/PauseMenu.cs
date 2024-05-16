@@ -39,7 +39,6 @@ public class PauseMenu : MonoBehaviour
             {
                 Resume();
                 PauseGameOnInv = false;
-                Cursor.visible = false;
             }
             else if(!PauseGameOnInv && !PauseGameOnEsc)
             {
@@ -52,17 +51,16 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked; // При відновленні гри блокуємо курсор
+        Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
         character.cursorLocked = true;
         pauseMenu.SetActive(false);
     }
 
-
     public void Pause()
     {
         Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None; // При паузі розблоковуємо курсор
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         character.cursorLocked = false;
     }

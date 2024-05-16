@@ -41,8 +41,6 @@ namespace XEntity.InventoryItemSystem
         public void UseItem(ItemSlot slot, Indicators indicator) 
         {
             if (slot.IsEmpty) return;
-
-            //Add custom item functions ###################################################################################################
             switch (slot.slotItem.type) 
             {
                 default: DefaultItemUse(slot); break;
@@ -62,10 +60,14 @@ namespace XEntity.InventoryItemSystem
             if (slot.slotItem.itemName == "Apple")
                 indicator.foodAmount += 25;
             if(slot.slotItem.itemName == "Pills")
+            {
                 indicator.smileAmount -= 25;
+                indicator.healthAmount += 25;
+            }
+
             Debug.Log("You have consumed " + slot.slotItem.itemName);
             slot.Remove(1);
-            indicator.            UpdateHealth();
+            indicator.UpdateHealth();
         }
 
         private void EquipItem(ItemSlot slot) 

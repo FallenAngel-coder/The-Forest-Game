@@ -18,7 +18,10 @@ namespace XEntity.InventoryItemSystem
 
         //This is the position at which dropped items will be instantiated (in front of this interactor).
         public Vector3 ItemDropPosition { get { return transform.position + transform.forward; } }
-
+        private void Start()
+        {
+            inventory.LoadData("save_key");
+        }
         //Called every frame after the game is started.
         private void Update()
         {
